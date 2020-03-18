@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "projectilefunnel",
+  "version": "${version}",
+
+  "name": "Projectile Funnel",
+  "description": "a funnel for projectile",
+  "authors": [
+    "Yoghurt4C"
+  ],
+  "contact": {
+    "homepage": "fecalfunny.com",
+    "sources": ""
+  },
+
+  "license": "MMPL-J 1.0",
+  "icon": "assets/projectilefunnel/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "mods.projectilefunnel.ProjectileFunnel"
+    ]
+  },
+  "mixins": [
+    "projectilefunnel.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.7.2",
+    "fabric": "*",
+    "minecraft": "1.16-alpha.20.11.a"
+  },
+  "suggests": {
+    "flamingo": "*"
+  }
+}

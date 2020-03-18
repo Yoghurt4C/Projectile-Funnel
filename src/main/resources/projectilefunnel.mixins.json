@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "mods.projectilefunnel.mixins",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "ProjectileEntityInvoker",
+    "ProjectileMixin",
+    "ThrownPotionEntityMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
