@@ -9,6 +9,7 @@ import net.minecraft.entity.thrown.ThrownPotionEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -26,7 +27,8 @@ public abstract class ThrownPotionEntityMixin extends ThrownItemEntity implement
     @Inject(method = "onCollision",at = @At("HEAD"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
     public void pleaseLetMeCancelThis(HitResult rtr, CallbackInfo ctx){
         BlockHitResult brtr = (BlockHitResult)rtr;
-        if (world.getBlockState(brtr.getBlockPos()).getBlock() instanceof HopperBlock){
+        if (world.getBlockState(brtr.getBlockPos()).getBlock() instanceof HopperBlock
+                && brtr.getSide().equals(Direction.UP)){
             HopperBlockEntity hopper = (HopperBlockEntity)world.getBlockEntity(brtr.getBlockPos());
             boolean isFull = true;
             for (int i = 0; i < hopper.getInvSize(); i++) {
